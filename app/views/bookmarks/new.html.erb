@@ -1,9 +1,6 @@
-<h1>Welcome!</h1>
-
-<ul>
-  <% @bookmarks.each do |bookmark| %>
-    <li>
-     <p><%= link_to bookmak.name, restaurant_path(restaurant) %>- address: <%= restaurant.address %> - phone_number: <%= restaurant.phone_number %> - category: <%= restaurant.category %></p>
-    </li>
-  <% end %>
-</ul>
+<h1>New Bookmark for <%= @list.name %></h1>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.association :movie %>
+  <%= f.input :comment %>
+  <%= f.submit %>
+<% end %>
